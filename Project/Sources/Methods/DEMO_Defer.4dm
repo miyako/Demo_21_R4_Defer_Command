@@ -1,6 +1,5 @@
-// Opens the "defer" code comparison window.
+// Opens the "defer" code comparison window (non-modal).
 var $window : Integer
 
 $window:=Open form window("DeferCompare"; Plain form window)
-DIALOG("DeferCompare")
-CLOSE WINDOW($window)
+DIALOG("DeferCompare"; *)

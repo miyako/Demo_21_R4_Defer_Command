@@ -1,1 +1,1 @@
-//DEMO_Defer()
+CALL WORKER("DeferCompare"; "DEMO_Defer")
