@@ -176,7 +176,17 @@ Function _codeRow($num : Integer; $raw : Text) : Object
 		: (Position("//"; Replace string($code; " "; ""))=1)
 			$kind:="comment"
 	End case 
-	return {num: $num; code: $code; kind: $kind; meta: This._meta($kind)}
+	return {num: $num; code: $code; kind: $kind}
+	
+// Meta info expression of the code listboxes, evaluated on each row display.
+Function rowMeta($row : Object) : Object
+	var $meta : Object:=This._meta($row.kind)
+	If (Bool(FORM Event.isRowSelected))
+		// let the selected-row text colour show through
+		$meta.stroke:=-255
+		OB REMOVE($meta; "fill")
+	End if 
+	return $meta
 	
 Function _meta($kind : Text) : Object
 	Case of 
@@ -192,7 +202,7 @@ Function _meta($kind : Text) : Object
 			return {stroke: This.palette.comment; fontStyle: "italic"}
 		Else 
 			return {stroke: -255}
-			//does not toggle on event.isRowSelected
+			//does not toggle on FORM Event.isRowSelected
 			//return {stroke: "automatic"}
 	End case 
 	
