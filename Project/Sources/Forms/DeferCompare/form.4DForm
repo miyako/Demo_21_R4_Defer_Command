@@ -21,15 +21,6 @@
 	"pages": [
 		{
 			"objects": {
-				"refCode": {
-					"type": "rectangle",
-					"top": 0,
-					"left": 0,
-					"width": 1,
-					"height": 1,
-					"class": "ref-code",
-					"stroke": "transparent"
-				},
 				"refComment": {
 					"type": "rectangle",
 					"top": 0,
@@ -150,7 +141,8 @@
 					"events": [
 						"onDataChange"
 					],
-					"class": "default"
+					"class": "default",
+					"stroke": "automatic"
 				},
 				"lblScenario": {
 					"type": "text",
@@ -171,7 +163,8 @@
 					"dataSource": "Form.scenarios",
 					"dataSourceTypeHint": "object",
 					"fontSize": 12,
-					"class": "default"
+					"class": "default",
+					"stroke": "automatic"
 				},
 				"btnRun": {
 					"type": "button",
@@ -187,7 +180,8 @@
 					"events": [
 						"onClick"
 					],
-					"class": "default"
+					"class": "default",
+					"stroke": "automatic"
 				},
 				"chkCleanup": {
 					"type": "checkbox",
@@ -203,7 +197,8 @@
 					"method": "ObjectMethods/chkCleanup.4dm",
 					"events": [
 						"onClick"
-					]
+					],
+					"stroke": "automatic"
 				},
 				"resultBar": {
 					"type": "rectangle",
@@ -313,7 +308,6 @@
 					"sortable": false,
 					"selectionMode": "single",
 					"verticalAlign": "middle",
-					"fontFamily": "Menlo",
 					"fontSize": 11,
 					"sizingY": "grow",
 					"columns": [
@@ -344,10 +338,12 @@
 							},
 							"footer": {
 								"name": "Footer2"
-							}
+							},
+							"class": "code-col"
 						}
 					],
-					"class": "code-pane"
+					"class": "code-pane",
+					"stroke": "automatic"
 				},
 				"lbDefer": {
 					"type": "listbox",
@@ -365,7 +361,6 @@
 					"sortable": false,
 					"selectionMode": "single",
 					"verticalAlign": "middle",
-					"fontFamily": "Menlo",
 					"fontSize": 11,
 					"sizingX": "move",
 					"sizingY": "grow",
@@ -397,10 +392,12 @@
 							},
 							"footer": {
 								"name": "Footer4"
-							}
+							},
+							"class": "code-col"
 						}
 					],
-					"class": "code-pane"
+					"class": "code-pane",
+					"stroke": "automatic"
 				},
 				"footer": {
 					"type": "text",
@@ -426,7 +423,8 @@
 					"action": "cancel",
 					"sizingX": "move",
 					"sizingY": "move",
-					"class": "default"
+					"class": "default",
+					"stroke": "automatic"
 				}
 			}
 		}

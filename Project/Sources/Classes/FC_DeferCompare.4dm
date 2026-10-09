@@ -191,7 +191,7 @@ Function _meta($kind : Text) : Object
 		: ($kind="comment")
 			return {stroke: This.palette.comment; fontStyle: "italic"}
 		Else
-			return {stroke: This.palette.code}
+			return {stroke: "automatic"}
 	End case
 
 //MARK: - Colour scheme
@@ -199,7 +199,7 @@ Function _meta($kind : Text) : Object
 // Row colours come from hidden reference rectangles styled in styleSheets.css,
 // so they follow the light / dark colour scheme.
 Function _resolvePalette()
-	var $refs : Object:={code: "refCode"; comment: "refComment"; cleanup: "refCleanup"; \
+	var $refs : Object:={comment: "refComment"; cleanup: "refCleanup"; \
 		defer: "refDefer"; exit: "refExit"; missing: "refMissing"}
 	var $kind : Text
 	var $fg; $bg : Integer

@@ -1,5 +1,10 @@
 /* macOS platform themes: Liquid Glass (Tahoe+) vs classic */
 
+/* monospace code panes */
+.code-pane, .line-num, .code-col {
+	fontFamily: Menlo;
+}
+
 @media (form-theme: liquid-glass) {
 	.default {
 		height: 27px;
