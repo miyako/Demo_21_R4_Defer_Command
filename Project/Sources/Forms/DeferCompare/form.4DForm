@@ -5,6 +5,7 @@
 	},
 	"windowTitle": "defer — the same job, written twice",
 	"formClass": "FC_DeferCompare",
+	"fluentUI": true,
 	"width": 1320,
 	"height": 800,
 	"rightMargin": 20,
@@ -19,7 +20,62 @@
 	"windowMinHeight": 640,
 	"pages": [
 		{
-			"objects": {}
+			"objects": {
+				"refCode": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 1,
+					"height": 1,
+					"class": "ref-code",
+					"stroke": "transparent"
+				},
+				"refComment": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 1,
+					"height": 1,
+					"class": "ref-comment",
+					"stroke": "transparent"
+				},
+				"refCleanup": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 1,
+					"height": 1,
+					"class": "ref-cleanup",
+					"stroke": "transparent"
+				},
+				"refDefer": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 1,
+					"height": 1,
+					"class": "ref-defer",
+					"stroke": "transparent"
+				},
+				"refExit": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 1,
+					"height": 1,
+					"class": "ref-exit",
+					"stroke": "transparent"
+				},
+				"refMissing": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 1,
+					"height": 1,
+					"class": "ref-missing",
+					"stroke": "transparent"
+				}
+			}
 		},
 		{
 			"objects": {
@@ -29,10 +85,10 @@
 					"left": 0,
 					"width": 1320,
 					"height": 800,
-					"fill": "#F4F6FA",
-					"stroke": "transparent",
 					"sizingX": "grow",
-					"sizingY": "grow"
+					"sizingY": "grow",
+					"class": "bg-main",
+					"stroke": "transparent"
 				},
 				"headerBar": {
 					"type": "rectangle",
@@ -40,9 +96,9 @@
 					"left": 0,
 					"width": 1320,
 					"height": 60,
-					"fill": "#12203A",
-					"stroke": "transparent",
-					"sizingX": "grow"
+					"sizingX": "grow",
+					"class": "header-bar",
+					"stroke": "transparent"
 				},
 				"title": {
 					"type": "text",
@@ -53,7 +109,7 @@
 					"text": "The same job, written twice",
 					"fontSize": 18,
 					"fontWeight": "bold",
-					"stroke": "#FFFFFF"
+					"class": "header-text"
 				},
 				"subtitle": {
 					"type": "input",
@@ -66,10 +122,10 @@
 					"width": 1280,
 					"height": 18,
 					"fontSize": 12,
-					"stroke": "#FFFFFF",
 					"fill": "transparent",
 					"borderStyle": "none",
-					"sizingX": "grow"
+					"sizingX": "grow",
+					"class": "header-text"
 				},
 				"lblExample": {
 					"type": "text",
@@ -80,21 +136,21 @@
 					"text": "Example",
 					"fontSize": 12,
 					"fontWeight": "bold",
-					"stroke": "#12203A"
+					"class": "label"
 				},
 				"dropExample": {
 					"type": "dropdown",
 					"top": 74,
 					"left": 84,
 					"width": 280,
-					"height": 24,
 					"dataSource": "Form.examples",
 					"dataSourceTypeHint": "object",
 					"fontSize": 12,
 					"method": "ObjectMethods/dropExample.4dm",
 					"events": [
 						"onDataChange"
-					]
+					],
+					"class": "default"
 				},
 				"lblScenario": {
 					"type": "text",
@@ -105,25 +161,24 @@
 					"text": "Scenario",
 					"fontSize": 12,
 					"fontWeight": "bold",
-					"stroke": "#12203A"
+					"class": "label"
 				},
 				"dropScenario": {
 					"type": "dropdown",
 					"top": 74,
 					"left": 446,
 					"width": 300,
-					"height": 24,
 					"dataSource": "Form.scenarios",
 					"dataSourceTypeHint": "object",
-					"fontSize": 12
+					"fontSize": 12,
+					"class": "default"
 				},
 				"btnRun": {
 					"type": "button",
-					"style": "roundedBevel",
+					"style": "regular",
 					"top": 74,
 					"left": 762,
 					"width": 110,
-					"height": 24,
 					"text": "Run both",
 					"textAlign": "center",
 					"fontSize": 13,
@@ -131,7 +186,8 @@
 					"method": "ObjectMethods/btnRun.4dm",
 					"events": [
 						"onClick"
-					]
+					],
+					"class": "default"
 				},
 				"chkCleanup": {
 					"type": "checkbox",
@@ -155,9 +211,9 @@
 					"left": 20,
 					"width": 1280,
 					"height": 30,
-					"fill": "#E7EFFB",
-					"stroke": "transparent",
-					"sizingX": "grow"
+					"sizingX": "grow",
+					"class": "result-bar",
+					"stroke": "transparent"
 				},
 				"lblResult": {
 					"type": "text",
@@ -168,7 +224,7 @@
 					"text": "Execution result:",
 					"fontSize": 14,
 					"fontWeight": "bold",
-					"stroke": "#12203A"
+					"class": "label"
 				},
 				"resultMessage": {
 					"type": "input",
@@ -182,10 +238,10 @@
 					"height": 22,
 					"fontSize": 14,
 					"fontWeight": "bold",
-					"stroke": "#0B63CE",
 					"fill": "transparent",
 					"borderStyle": "none",
-					"sizingX": "grow"
+					"sizingX": "grow",
+					"class": "accent"
 				},
 				"hdrLegacy": {
 					"type": "text",
@@ -196,7 +252,7 @@
 					"text": "WITHOUT defer",
 					"fontSize": 14,
 					"fontWeight": "bold",
-					"stroke": "#C81E1E"
+					"class": "legacy"
 				},
 				"metricsLegacy": {
 					"type": "input",
@@ -209,9 +265,9 @@
 					"width": 640,
 					"height": 18,
 					"fontSize": 11,
-					"stroke": "#5A6B85",
 					"fill": "transparent",
-					"borderStyle": "none"
+					"borderStyle": "none",
+					"class": "muted"
 				},
 				"hdrDefer": {
 					"type": "text",
@@ -222,8 +278,8 @@
 					"text": "WITH defer",
 					"fontSize": 14,
 					"fontWeight": "bold",
-					"stroke": "#1A7F37",
-					"sizingX": "move"
+					"sizingX": "move",
+					"class": "defer"
 				},
 				"metricsDefer": {
 					"type": "input",
@@ -236,10 +292,10 @@
 					"width": 640,
 					"height": 18,
 					"fontSize": 11,
-					"stroke": "#5A6B85",
 					"fill": "transparent",
 					"borderStyle": "none",
-					"sizingX": "move"
+					"sizingX": "move",
+					"class": "muted"
 				},
 				"lbLegacy": {
 					"type": "listbox",
@@ -256,7 +312,6 @@
 					"hideFocusRing": true,
 					"sortable": false,
 					"selectionMode": "single",
-					"fill": "#FFFFFF",
 					"verticalAlign": "middle",
 					"fontFamily": "Menlo",
 					"fontSize": 11,
@@ -269,14 +324,14 @@
 							"width": 40,
 							"enterable": false,
 							"textAlign": "right",
-							"stroke": "#B8C2D0",
 							"header": {
 								"name": "headerLegacyNum",
 								"text": "#"
 							},
 							"footer": {
 								"name": "Footer1"
-							}
+							},
+							"class": "line-num"
 						},
 						{
 							"name": "colLegacyCode",
@@ -291,7 +346,8 @@
 								"name": "Footer2"
 							}
 						}
-					]
+					],
+					"class": "code-pane"
 				},
 				"lbDefer": {
 					"type": "listbox",
@@ -308,7 +364,6 @@
 					"hideFocusRing": true,
 					"sortable": false,
 					"selectionMode": "single",
-					"fill": "#FFFFFF",
 					"verticalAlign": "middle",
 					"fontFamily": "Menlo",
 					"fontSize": 11,
@@ -322,14 +377,14 @@
 							"width": 40,
 							"enterable": false,
 							"textAlign": "right",
-							"stroke": "#B8C2D0",
 							"header": {
 								"name": "headerDeferNum",
 								"text": "#"
 							},
 							"footer": {
 								"name": "Footer3"
-							}
+							},
+							"class": "line-num"
 						},
 						{
 							"name": "colDeferCode",
@@ -344,7 +399,8 @@
 								"name": "Footer4"
 							}
 						}
-					]
+					],
+					"class": "code-pane"
 				},
 				"footer": {
 					"type": "text",
@@ -354,23 +410,23 @@
 					"height": 20,
 					"text": "defer(expression) — stacked where it is declared, executed in LIFO order when the method exits: normal end, Return, or user abort.",
 					"fontSize": 11,
-					"stroke": "#5A6B85",
 					"sizingY": "move",
-					"sizingX": "grow"
+					"sizingX": "grow",
+					"class": "muted"
 				},
 				"btnClose": {
 					"type": "button",
-					"style": "roundedBevel",
+					"style": "regular",
 					"top": 760,
 					"left": 1196,
 					"width": 104,
-					"height": 26,
 					"text": "Close",
 					"textAlign": "center",
 					"fontSize": 12,
 					"action": "cancel",
 					"sizingX": "move",
-					"sizingY": "move"
+					"sizingY": "move",
+					"class": "default"
 				}
 			}
 		}

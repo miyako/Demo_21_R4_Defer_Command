@@ -15,6 +15,7 @@ property metricsLegacy : Text
 property metricsDefer : Text
 property resultMessage : Text
 property cleanupOnly : Boolean
+property palette : Object
 
 Class constructor()
 	This.examples:={values: [\
@@ -23,9 +24,15 @@ Class constructor()
 		]; index: 0}
 	This.exampleKeys:=["xml"; "bench"]
 	This.cleanupOnly:=False
-	This._loadExample()
 
 //MARK: - Form objects event handlers
+
+Function formEventHandler($formEventCode : Integer)
+	Case of
+		: ($formEventCode=On Load)
+			This._resolvePalette()
+			This._loadExample()
+	End case
 
 Function dropExampleEventHandler($formEventCode : Integer)
 	Case of
@@ -174,18 +181,43 @@ Function _codeRow($num : Integer; $raw : Text) : Object
 Function _meta($kind : Text) : Object
 	Case of
 		: ($kind="cleanup")
-			return {stroke: "#C81E1E"; fontWeight: "bold"}
+			return {stroke: This.palette.cleanup; fontWeight: "bold"}
 		: ($kind="defer")
-			return {stroke: "#1A7F37"; fontWeight: "bold"}
+			return {stroke: This.palette.defer; fontWeight: "bold"}
 		: ($kind="missing")
-			return {stroke: "#FFFFFF"; fill: "#C81E1E"; fontWeight: "bold"}
+			return {stroke: "#FFFFFF"; fill: This.palette.missing; fontWeight: "bold"}
 		: ($kind="exit")
-			return {stroke: "#0B63CE"; fontWeight: "bold"}
+			return {stroke: This.palette.exit; fontWeight: "bold"}
 		: ($kind="comment")
-			return {stroke: "#8892A4"; fontStyle: "italic"}
+			return {stroke: This.palette.comment; fontStyle: "italic"}
 		Else
-			return {stroke: "#1F2933"}
+			return {stroke: This.palette.code}
 	End case
+
+//MARK: - Colour scheme
+
+// Row colours come from hidden reference rectangles styled in styleSheets.css,
+// so they follow the light / dark colour scheme.
+Function _resolvePalette()
+	var $refs : Object:={code: "refCode"; comment: "refComment"; cleanup: "refCleanup"; \
+		defer: "refDefer"; exit: "refExit"; missing: "refMissing"}
+	var $kind : Text
+	var $fg; $bg : Integer
+	This.palette:={}
+	For each ($kind; $refs)
+		OBJECT GET RGB COLORS(*; $refs[$kind]; $fg; $bg)
+		This.palette[$kind]:=This._toHex($bg)
+	End for each
+
+Function _toHex($rgb : Integer) : Text
+	var $digits : Text:="0123456789ABCDEF"
+	var $hex : Text:="#"
+	var $shift; $val : Integer
+	For each ($shift; [16; 8; 0])
+		$val:=($rgb >> $shift) & 0x00FF
+		$hex:=$hex+$digits[[($val\16)+1]]+$digits[[($val%16)+1]]
+	End for each
+	return $hex
 
 Function _metrics($lines : Collection; $noun : Text) : Text
 	var $cleanup : Integer:=$lines.query("kind in :1"; ["cleanup"; "defer"]).length
