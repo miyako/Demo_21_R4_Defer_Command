@@ -3,7 +3,7 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"windowTitle": "defer — the same job, written twice",
+	"windowTitle": ":xliff:DeferCompare_WindowTitle",
 	"formClass": "FC_DeferCompare",
 	"fluentUI": true,
 	"width": 1320,
@@ -97,7 +97,7 @@
 					"left": 20,
 					"width": 900,
 					"height": 24,
-					"text": "The same job, written twice",
+					"text": ":xliff:DeferCompare_Title",
 					"fontSize": 18,
 					"fontWeight": "bold",
 					"class": "header-text"
@@ -124,7 +124,7 @@
 					"left": 20,
 					"width": 60,
 					"height": 20,
-					"text": "Example",
+					"text": ":xliff:DeferCompare_LabelExample",
 					"fontSize": 12,
 					"fontWeight": "bold",
 					"class": "label"
@@ -150,7 +150,7 @@
 					"left": 380,
 					"width": 62,
 					"height": 20,
-					"text": "Scenario",
+					"text": ":xliff:DeferCompare_LabelScenario",
 					"fontSize": 12,
 					"fontWeight": "bold",
 					"class": "label"
@@ -172,7 +172,7 @@
 					"top": 74,
 					"left": 762,
 					"width": 110,
-					"text": "Run both",
+					"text": ":xliff:DeferCompare_BtnRun",
 					"textAlign": "center",
 					"fontSize": 13,
 					"fontWeight": "bold",
@@ -190,7 +190,7 @@
 					"left": 888,
 					"width": 220,
 					"height": 20,
-					"text": "Show clean-up code only",
+					"text": ":xliff:DeferCompare_ChkCleanupOnly",
 					"dataSource": "Form.cleanupOnly",
 					"dataSourceTypeHint": "boolean",
 					"fontSize": 12,
@@ -216,7 +216,7 @@
 					"left": 32,
 					"width": 130,
 					"height": 20,
-					"text": "Execution result:",
+					"text": ":xliff:DeferCompare_LabelResult",
 					"fontSize": 14,
 					"fontWeight": "bold",
 					"class": "label"
@@ -244,7 +244,7 @@
 					"left": 20,
 					"width": 640,
 					"height": 20,
-					"text": "WITHOUT defer",
+					"text": ":xliff:DeferCompare_HeaderLegacy",
 					"fontSize": 14,
 					"fontWeight": "bold",
 					"class": "legacy"
@@ -270,7 +270,7 @@
 					"left": 676,
 					"width": 640,
 					"height": 20,
-					"text": "WITH defer",
+					"text": ":xliff:DeferCompare_HeaderDefer",
 					"fontSize": 14,
 					"fontWeight": "bold",
 					"sizingX": "move",
@@ -336,7 +336,7 @@
 							"enterable": false,
 							"header": {
 								"name": "headerLegacyCode",
-								"text": "Code"
+								"text": ":xliff:DeferCompare_HeaderCode"
 							},
 							"footer": {
 								"name": "Footer2"
@@ -390,7 +390,7 @@
 							"enterable": false,
 							"header": {
 								"name": "headerDeferCode",
-								"text": "Code"
+								"text": ":xliff:DeferCompare_HeaderCode"
 							},
 							"footer": {
 								"name": "Footer4"
@@ -405,7 +405,7 @@
 					"left": 20,
 					"width": 1140,
 					"height": 20,
-					"text": "defer(expression) — stacked where it is declared, executed in LIFO order when the method exits: normal end, Return, or user abort.",
+					"text": ":xliff:DeferCompare_Footer",
 					"fontSize": 11,
 					"sizingY": "move",
 					"sizingX": "grow",
@@ -417,7 +417,7 @@
 					"top": 760,
 					"left": 1196,
 					"width": 104,
-					"text": "Close",
+					"text": ":xliff:CommonClose",
 					"textAlign": "center",
 					"fontSize": 12,
 					"action": "cancel",

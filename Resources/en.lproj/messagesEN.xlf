@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file datatype="plaintext" original="Classes/FC_DeferCompare.4dm" source-language="en" target-language="en">
+		<body>
+			<trans-unit id="DeferCompare_ExampleXML" resname="DeferCompare_ExampleXML">
+				<source>XML — closing 5 document references</source>
+				<target>XML — closing 5 document references</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ExampleBench" resname="DeferCompare_ExampleBench">
+				<source>Benchmark — closing the measure</source>
+				<target>Benchmark — closing the measure</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_SubtitleXML" resname="DeferCompare_SubtitleXML">
+				<source>5 XML document references · 11 exit points · 2 nested loops.</source>
+				<target>5 XML document references · 11 exit points · 2 nested loops.</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_SubtitleBench" resname="DeferCompare_SubtitleBench">
+				<source>1 benchmark · 12 exit points — a measure that has to be closed on every single path.</source>
+				<target>1 benchmark · 12 exit points — a measure that has to be closed on every single path.</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioXMLNominal" resname="DeferCompare_ScenarioXMLNominal">
+				<source>Nominal — the report is produced (exit 11)</source>
+				<target>Nominal — the report is produced (exit 11)</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioXMLCatalogVersion" resname="DeferCompare_ScenarioXMLCatalogVersion">
+				<source>Catalog version mismatch (exit 4)</source>
+				<target>Catalog version mismatch (exit 4)</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioXMLTemplatePlaceholder" resname="DeferCompare_ScenarioXMLTemplatePlaceholder">
+				<source>Template placeholder missing (exit 8)</source>
+				<target>Template placeholder missing (exit 8)</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioXMLUnknownProduct" resname="DeferCompare_ScenarioXMLUnknownProduct">
+				<source>Unknown product in an order (exit 9)</source>
+				<target>Unknown product in an order (exit 9)</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioBenchNominal" resname="DeferCompare_ScenarioBenchNominal">
+				<source>Nominal — order priced (exit 12)</source>
+				<target>Nominal — order priced (exit 12)</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioBenchBlockedCustomer" resname="DeferCompare_ScenarioBenchBlockedCustomer">
+				<source>Customer is blocked (exit 5)</source>
+				<target>Customer is blocked (exit 5)</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioBenchUnknownProduct" resname="DeferCompare_ScenarioBenchUnknownProduct">
+				<source>Unknown product in a line (exit 9)</source>
+				<target>Unknown product in a line (exit 9)</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioBenchBadCurrency" resname="DeferCompare_ScenarioBenchBadCurrency">
+				<source>Unsupported currency, error caught (exit 7)</source>
+				<target>Unsupported currency, error caught (exit 7)</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioBenchDiscountConflict" resname="DeferCompare_ScenarioBenchDiscountConflict">
+				<source>Conflicting discounts (exit 11) — the measure is lost</source>
+				<target>Conflicting discounts (exit 11) — the measure is lost</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ResultPrompt" resname="DeferCompare_ResultPrompt">
+				<source>press Run both to execute the two versions</source>
+				<target>press Run both to execute the two versions</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ResultSame" resname="DeferCompare_ResultSame">
+				<source>Exit {exit} on both sides — {message}</source>
+				<target>Exit {exit} on both sides — {message}</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ResultDiverge" resname="DeferCompare_ResultDiverge">
+				<source>The two versions diverge!</source>
+				<target>The two versions diverge!</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ResultBench" resname="DeferCompare_ResultBench">
+				<source>Exit {exit} — measures recorded: {legacyRecorded}/{legacyStarted} without defer,  {deferRecorded}/{deferStarted} with defer</source>
+				<target>Exit {exit} — measures recorded: {legacyRecorded}/{legacyStarted} without defer,  {deferRecorded}/{deferStarted} with defer</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_Metrics" resname="DeferCompare_Metrics">
+				<source>{lines} lines   |   {exits} exit points   |   {cleanup}</source>
+				<target>{lines} lines   |   {exits} exit points   |   {cleanup}</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_MetricsCleanupXML" resname="DeferCompare_MetricsCleanupXML">
+				<source>{count} clean-up statements</source>
+				<target>{count} clean-up statements</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_MetricsCleanupBench" resname="DeferCompare_MetricsCleanupBench">
+				<source>{count} benchmark closings</source>
+				<target>{count} benchmark closings</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

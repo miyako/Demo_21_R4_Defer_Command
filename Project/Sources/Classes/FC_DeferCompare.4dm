@@ -19,8 +19,8 @@ property palette : Object
 
 Class constructor()
 	This.examples:={values: [\
-		"XML — closing 5 document references"; \
-		"Benchmark — closing the measure"\
+		Localized string("DeferCompare_ExampleXML"); \
+		Localized string("DeferCompare_ExampleBench")\
 		]; index: 0}
 	This.exampleKeys:=["xml"; "bench"]
 	This.cleanupOnly:=False
@@ -58,36 +58,36 @@ Function get isBenchmark() : Boolean
 	return (This.exampleKeys[This.examples.index]="bench")
 	
 Function _loadExample()
-	var $noun : Text
+	var $cleanupKey : Text
 	If (This.isBenchmark)
-		This.subtitle:="1 benchmark · 12 exit points — a measure that has to be closed on every single path."
+		This.subtitle:=Localized string("DeferCompare_SubtitleBench")
 		This.scenarios:={values: [\
-			"Nominal — order priced (exit 12)"; \
-			"Customer is blocked (exit 5)"; \
-			"Unknown product in a line (exit 9)"; \
-			"Unsupported currency, error caught (exit 7)"; \
-			"Conflicting discounts (exit 11) — the measure is lost"\
+			Localized string("DeferCompare_ScenarioBenchNominal"); \
+			Localized string("DeferCompare_ScenarioBenchBlockedCustomer"); \
+			Localized string("DeferCompare_ScenarioBenchUnknownProduct"); \
+			Localized string("DeferCompare_ScenarioBenchBadCurrency"); \
+			Localized string("DeferCompare_ScenarioBenchDiscountConflict")\
 			]; index: 0}
 		This.keys:=["nominal"; "blockedCustomer"; "unknownProduct"; "badCurrency"; "discountConflict"]
 		This.legacyAll:=This._loadSource("PricingEngineLegacy")
 		This.deferAll:=This._loadSource("PricingEngineDefer")
-		$noun:="benchmark closings"
+		$cleanupKey:="DeferCompare_MetricsCleanupBench"
 	Else 
-		This.subtitle:="5 XML document references · 11 exit points · 2 nested loops."
+		This.subtitle:=Localized string("DeferCompare_SubtitleXML")
 		This.scenarios:={values: [\
-			"Nominal — the report is produced (exit 11)"; \
-			"Catalog version mismatch (exit 4)"; \
-			"Template placeholder missing (exit 8)"; \
-			"Unknown product in an order (exit 9)"\
+			Localized string("DeferCompare_ScenarioXMLNominal"); \
+			Localized string("DeferCompare_ScenarioXMLCatalogVersion"); \
+			Localized string("DeferCompare_ScenarioXMLTemplatePlaceholder"); \
+			Localized string("DeferCompare_ScenarioXMLUnknownProduct")\
 			]; index: 0}
 		This.keys:=["nominal"; "catalogVersion"; "templatePlaceholder"; "unknownProduct"]
 		This.legacyAll:=This._loadSource("XMLReportBuilderLegacy")
 		This.deferAll:=This._loadSource("XMLReportBuilderDefer")
-		$noun:="clean-up statements"
+		$cleanupKey:="DeferCompare_MetricsCleanupXML"
 	End if 
-	This.resultMessage:="press Run both to execute the two versions"
-	This.metricsLegacy:=This._metrics(This.legacyAll; $noun)
-	This.metricsDefer:=This._metrics(This.deferAll; $noun)
+	This.resultMessage:=Localized string("DeferCompare_ResultPrompt")
+	This.metricsLegacy:=This._metrics(This.legacyAll; $cleanupKey)
+	This.metricsDefer:=This._metrics(This.deferAll; $cleanupKey)
 	This._applyFilter()
 	
 	//MARK: - Demo driver
@@ -105,9 +105,9 @@ Function _runXML()
 	var $defer : Object:=cs.XMLReportBuilderDefer.me.build($scenario)
 	
 	If (($legacy.exit=$defer.exit) && ($legacy.xml=$defer.xml) && ($legacy.message=$defer.message))
-		This.resultMessage:="Exit "+String($defer.exit)+" on both sides — "+$defer.message
+		This.resultMessage:=This._localized("DeferCompare_ResultSame"; {exit: $defer.exit; message: $defer.message})
 	Else 
-		This.resultMessage:="The two versions diverge!"
+		This.resultMessage:=Localized string("DeferCompare_ResultDiverge")
 	End if 
 	This._spotExit($defer.exit)
 	
@@ -125,9 +125,9 @@ Function _runBenchmark()
 	var $deferStarted : Integer:=$bench.started
 	var $deferRecorded : Integer:=$bench.recorded
 	
-	This.resultMessage:="Exit "+String($defer.exit)+" — measures recorded: "\
-		+String($legacyRecorded)+"/"+String($legacyStarted)+" without defer,  "\
-		+String($deferRecorded)+"/"+String($deferStarted)+" with defer"
+	This.resultMessage:=This._localized("DeferCompare_ResultBench"; {exit: $defer.exit; \
+		legacyRecorded: $legacyRecorded; legacyStarted: $legacyStarted; \
+		deferRecorded: $deferRecorded; deferStarted: $deferStarted})
 	This._spotExit($defer.exit)
 	
 Function _spotExit($exit : Integer)
@@ -224,11 +224,20 @@ Function _toHex($rgb : Integer) : Text
 	End for each 
 	return $hex
 	
-Function _metrics($lines : Collection; $noun : Text) : Text
+Function _metrics($lines : Collection; $cleanupKey : Text) : Text
 	var $cleanup : Integer:=$lines.query("kind in :1"; ["cleanup"; "defer"]).length
 	var $exits : Integer:=$lines.query("kind = :1"; "exit").length
-	return String($lines.length)+" lines   |   "+String($exits)+" exit points   |   "\
-		+String($cleanup)+" "+$noun
+	return This._localized("DeferCompare_Metrics"; {lines: $lines.length; exits: $exits; \
+		cleanup: This._localized($cleanupKey; {count: $cleanup})})
+	
+	// Localized string with {name} placeholders replaced by $values
+Function _localized($id : Text; $values : Object) : Text
+	var $text : Text:=Localized string($id)
+	var $key : Text
+	For each ($key; $values)
+		$text:=Replace string($text; "{"+$key+"}"; String($values[$key]))
+	End for each 
+	return $text
 	
 Function _applyFilter()
 	If (This.cleanupOnly)
