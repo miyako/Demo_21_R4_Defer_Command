@@ -24,39 +24,39 @@ Class constructor()
 		]; index: 0}
 	This.exampleKeys:=["xml"; "bench"]
 	This.cleanupOnly:=False
-
-//MARK: - Form objects event handlers
-
+	
+	//MARK: - Form objects event handlers
+	
 Function formEventHandler($formEventCode : Integer)
-	Case of
+	Case of 
 		: ($formEventCode=On Load)
 			This._resolvePalette()
 			This._loadExample()
-	End case
-
+	End case 
+	
 Function dropExampleEventHandler($formEventCode : Integer)
-	Case of
+	Case of 
 		: ($formEventCode=On Data Change)
 			This._loadExample()
-	End case
-
+	End case 
+	
 Function btnRunEventHandler($formEventCode : Integer)
-	Case of
+	Case of 
 		: ($formEventCode=On Clicked)
 			This._runBoth()
-	End case
-
+	End case 
+	
 Function chkCleanupEventHandler($formEventCode : Integer)
-	Case of
+	Case of 
 		: ($formEventCode=On Clicked)
 			This._applyFilter()
-	End case
-
-//MARK: - Examples
-
+	End case 
+	
+	//MARK: - Examples
+	
 Function get isBenchmark() : Boolean
 	return (This.exampleKeys[This.examples.index]="bench")
-
+	
 Function _loadExample()
 	var $noun : Text
 	If (This.isBenchmark)
@@ -72,7 +72,7 @@ Function _loadExample()
 		This.legacyAll:=This._loadSource("PricingEngineLegacy")
 		This.deferAll:=This._loadSource("PricingEngineDefer")
 		$noun:="benchmark closings"
-	Else
+	Else 
 		This.subtitle:="5 XML document references · 11 exit points · 2 nested loops."
 		This.scenarios:={values: [\
 			"Nominal — the report is produced (exit 11)"; \
@@ -84,85 +84,85 @@ Function _loadExample()
 		This.legacyAll:=This._loadSource("XMLReportBuilderLegacy")
 		This.deferAll:=This._loadSource("XMLReportBuilderDefer")
 		$noun:="clean-up statements"
-	End if
+	End if 
 	This.resultMessage:="press Run both to execute the two versions"
 	This.metricsLegacy:=This._metrics(This.legacyAll; $noun)
 	This.metricsDefer:=This._metrics(This.deferAll; $noun)
 	This._applyFilter()
-
-//MARK: - Demo driver
-
+	
+	//MARK: - Demo driver
+	
 Function _runBoth()
 	If (This.isBenchmark)
 		This._runBenchmark()
-	Else
+	Else 
 		This._runXML()
-	End if
-
+	End if 
+	
 Function _runXML()
 	var $scenario : Text:=This.keys[This.scenarios.index]
 	var $legacy : Object:=cs.XMLReportBuilderLegacy.me.build($scenario)
 	var $defer : Object:=cs.XMLReportBuilderDefer.me.build($scenario)
-
+	
 	If (($legacy.exit=$defer.exit) && ($legacy.xml=$defer.xml) && ($legacy.message=$defer.message))
 		This.resultMessage:="Exit "+String($defer.exit)+" on both sides — "+$defer.message
-	Else
+	Else 
 		This.resultMessage:="The two versions diverge!"
-	End if
+	End if 
 	This._spotExit($defer.exit)
-
+	
 Function _runBenchmark()
 	var $scenario : Text:=This.keys[This.scenarios.index]
 	var $bench : cs.BenchLog:=cs.BenchLog.me
-
+	
 	$bench.reset()
 	var $legacy : Object:=cs.PricingEngineLegacy.me.compute($scenario)
 	var $legacyStarted : Integer:=$bench.started
 	var $legacyRecorded : Integer:=$bench.recorded
-
+	
 	$bench.reset()
 	var $defer : Object:=cs.PricingEngineDefer.me.compute($scenario)
 	var $deferStarted : Integer:=$bench.started
 	var $deferRecorded : Integer:=$bench.recorded
-
-	This.resultMessage:="Exit "+String($defer.exit)+" — measures recorded: " \
-		+String($legacyRecorded)+"/"+String($legacyStarted)+" without defer,  " \
+	
+	This.resultMessage:="Exit "+String($defer.exit)+" — measures recorded: "\
+		+String($legacyRecorded)+"/"+String($legacyStarted)+" without defer,  "\
 		+String($deferRecorded)+"/"+String($deferStarted)+" with defer"
 	This._spotExit($defer.exit)
-
+	
 Function _spotExit($exit : Integer)
 	This._selectExitRow("lbLegacy"; This.legacyLines; $exit)
 	This._selectExitRow("lbDefer"; This.deferLines; $exit)
-
-//MARK: - Source code panes
-
+	
+	//MARK: - Source code panes
+	
 Function _loadSource($className : Text) : Collection
 	var $lines : Collection:=[]
 	var $file : 4D.File:=File("/SOURCES/Classes/"+$className+".4dm")
 	If (Not($file.exists))
 		$file:=Folder(fk database folder).file("Sources/Classes/"+$className+".4dm")
-	End if
+	End if 
 	If (Not($file.exists))
 		return $lines
-	End if
-
+	End if 
+	
 	var $text : Text:=$file.getText()
 	$text:=Replace string($text; Char(Carriage return)+Char(Line feed); Char(Line feed))
 	$text:=Replace string($text; Char(Carriage return); Char(Line feed))
-
+	
 	var $rawLines : Collection:=Split string($text; Char(Line feed))
 	var $raw : Text
 	var $num : Integer:=0
 	For each ($raw; $rawLines)
 		$num:=$num+1
 		$lines.push(This._codeRow($num; $raw))
-	End for each
+	End for each 
 	return $lines
-
+	
 Function _codeRow($num : Integer; $raw : Text) : Object
 	var $code : Text:=Replace string($raw; Char(Tab); "    ")
 	var $kind : Text:="code"
-	Case of
+	Case of 
 		: (Position("!! FORGOTTEN"; $code)>0)
 			$kind:="missing"
 		: (Position("--- EXIT"; $code)>0)
@@ -175,11 +175,11 @@ Function _codeRow($num : Integer; $raw : Text) : Object
 			$kind:="cleanup"
 		: (Position("//"; Replace string($code; " "; ""))=1)
 			$kind:="comment"
-	End case
+	End case 
 	return {num: $num; code: $code; kind: $kind; meta: This._meta($kind)}
-
+	
 Function _meta($kind : Text) : Object
-	Case of
+	Case of 
 		: ($kind="cleanup")
 			return {stroke: This.palette.cleanup; fontWeight: "bold"}
 		: ($kind="defer")
@@ -190,14 +190,16 @@ Function _meta($kind : Text) : Object
 			return {stroke: This.palette.exit; fontWeight: "bold"}
 		: ($kind="comment")
 			return {stroke: This.palette.comment; fontStyle: "italic"}
-		Else
-			return {stroke: "automatic"}
-	End case
-
-//MARK: - Colour scheme
-
-// Row colours come from hidden reference rectangles styled in styleSheets.css,
-// so they follow the light / dark colour scheme.
+		Else 
+			return {stroke: -255}
+			//does not toggle on event.isRowSelected
+			//return {stroke: "automatic"}
+	End case 
+	
+	//MARK: - Colour scheme
+	
+	// Row colours come from hidden reference rectangles styled in styleSheets.css,
+	// so they follow the light / dark colour scheme.
 Function _resolvePalette()
 	var $refs : Object:={comment: "refComment"; cleanup: "refCleanup"; \
 		defer: "refDefer"; exit: "refExit"; missing: "refMissing"}
@@ -207,8 +209,8 @@ Function _resolvePalette()
 	For each ($kind; $refs)
 		OBJECT GET RGB COLORS(*; $refs[$kind]; $fg; $bg)
 		This.palette[$kind]:=This._toHex($bg)
-	End for each
-
+	End for each 
+	
 Function _toHex($rgb : Integer) : Text
 	var $digits : Text:="0123456789ABCDEF"
 	var $hex : Text:="#"
@@ -216,30 +218,31 @@ Function _toHex($rgb : Integer) : Text
 	For each ($shift; [16; 8; 0])
 		$val:=($rgb >> $shift) & 0x00FF
 		$hex:=$hex+$digits[[($val\16)+1]]+$digits[[($val%16)+1]]
-	End for each
+	End for each 
 	return $hex
-
+	
 Function _metrics($lines : Collection; $noun : Text) : Text
 	var $cleanup : Integer:=$lines.query("kind in :1"; ["cleanup"; "defer"]).length
 	var $exits : Integer:=$lines.query("kind = :1"; "exit").length
-	return String($lines.length)+" lines   |   "+String($exits)+" exit points   |   " \
+	return String($lines.length)+" lines   |   "+String($exits)+" exit points   |   "\
 		+String($cleanup)+" "+$noun
-
+	
 Function _applyFilter()
 	If (This.cleanupOnly)
 		This.legacyLines:=This.legacyAll.query("kind in :1"; ["cleanup"; "defer"; "exit"; "missing"])
 		This.deferLines:=This.deferAll.query("kind in :1"; ["cleanup"; "defer"; "exit"; "missing"])
-	Else
+	Else 
 		This.legacyLines:=This.legacyAll
 		This.deferLines:=This.deferAll
-	End if
-
+	End if 
+	
 Function _selectExitRow($objectName : Text; $lines : Collection; $exit : Integer)
 	var $needle : Text:="--- EXIT "+String($exit)+" "
 	var $i : Integer
 	For ($i; 0; $lines.length-1)
 		If (Position($needle; $lines[$i].code)>0)
 			LISTBOX SELECT ROW(*; $objectName; $i+1; lk replace selection)
-			return
-		End if
-	End for
+			return 
+		End if 
+	End for 
+	
