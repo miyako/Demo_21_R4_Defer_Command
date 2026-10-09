@@ -190,7 +190,7 @@ Function _meta($kind : Text) : Object
 		: ($kind="defer")
 			return {stroke: This.palette.defer; fontWeight: "bold"}
 		: ($kind="missing")
-			return {stroke: "transparent"; fill: This.palette.missing; fontWeight: "bold"}
+			return {stroke: "#FFFFFF"; fill: This.palette.missing; fontWeight: "bold"}
 		: ($kind="exit")
 			return {stroke: This.palette.exit; fontWeight: "bold"}
 		: ($kind="comment")
