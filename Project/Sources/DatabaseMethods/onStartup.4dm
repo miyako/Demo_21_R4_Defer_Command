@@ -1,1 +1,1 @@
-CALL WORKER("DeferCompare"; "DEMO_Defer")
+DEMO_Defer
