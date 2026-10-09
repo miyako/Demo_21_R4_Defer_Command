@@ -178,15 +178,10 @@ Function _codeRow($num : Integer; $raw : Text) : Object
 	End case 
 	return {num: $num; code: $code; kind: $kind}
 	
-// Meta info expression of the code listboxes, evaluated on each row display.
+	// Meta info expression of the code listboxes, evaluated on each row display.
 Function rowMeta($row : Object) : Object
-	var $meta : Object:=This._meta($row.kind)
-	If (Bool(FORM Event.isRowSelected))
-		// let the selected-row text colour show through
-		$meta.stroke:=-255
-		OB REMOVE($meta; "fill")
-	End if 
-	return $meta
+	
+	return This._meta($row.kind)
 	
 Function _meta($kind : Text) : Object
 	Case of 
@@ -195,15 +190,13 @@ Function _meta($kind : Text) : Object
 		: ($kind="defer")
 			return {stroke: This.palette.defer; fontWeight: "bold"}
 		: ($kind="missing")
-			return {stroke: "#FFFFFF"; fill: This.palette.missing; fontWeight: "bold"}
+			return {stroke: "transparent"; fill: This.palette.missing; fontWeight: "bold"}
 		: ($kind="exit")
 			return {stroke: This.palette.exit; fontWeight: "bold"}
 		: ($kind="comment")
 			return {stroke: This.palette.comment; fontStyle: "italic"}
 		Else 
 			return {stroke: -255}
-			//does not toggle on FORM Event.isRowSelected
-			//return {stroke: "automatic"}
 	End case 
 	
 	//MARK: - Colour scheme
