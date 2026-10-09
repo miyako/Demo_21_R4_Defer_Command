@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file datatype="plaintext" original="Forms/DeferCompare/form.4DForm" source-language="en" target-language="en">
+		<body>
+			<trans-unit id="DeferCompare_WindowTitle" resname="DeferCompare_WindowTitle">
+				<source>defer — the same job, written twice</source>
+				<target>defer — the same job, written twice</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_Title" resname="DeferCompare_Title">
+				<source>The same job, written twice</source>
+				<target>The same job, written twice</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_LabelExample" resname="DeferCompare_LabelExample">
+				<source>Example</source>
+				<target>Example</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_LabelScenario" resname="DeferCompare_LabelScenario">
+				<source>Scenario</source>
+				<target>Scenario</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_BtnRun" resname="DeferCompare_BtnRun">
+				<source>Run both</source>
+				<target>Run both</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ChkCleanupOnly" resname="DeferCompare_ChkCleanupOnly">
+				<source>Show clean-up code only</source>
+				<target>Show clean-up code only</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_LabelResult" resname="DeferCompare_LabelResult">
+				<source>Execution result:</source>
+				<target>Execution result:</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_HeaderLegacy" resname="DeferCompare_HeaderLegacy">
+				<source>WITHOUT defer</source>
+				<target>WITHOUT defer</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_HeaderDefer" resname="DeferCompare_HeaderDefer">
+				<source>WITH defer</source>
+				<target>WITH defer</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_HeaderCode" resname="DeferCompare_HeaderCode">
+				<source>Code</source>
+				<target>Code</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_Footer" resname="DeferCompare_Footer">
+				<source>defer(expression) — stacked where it is declared, executed in LIFO order when the method exits: normal end, Return, or user abort.</source>
+				<target>defer(expression) — stacked where it is declared, executed in LIFO order when the method exits: normal end, Return, or user abort.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

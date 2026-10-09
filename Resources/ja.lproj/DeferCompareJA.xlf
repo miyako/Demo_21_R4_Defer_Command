@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file datatype="plaintext" original="Forms/DeferCompare/form.4DForm" source-language="en" target-language="ja">
+		<body>
+			<trans-unit id="DeferCompare_WindowTitle" resname="DeferCompare_WindowTitle">
+				<source>defer — the same job, written twice</source>
+				<target>defer — 同じ処理を2通りで記述</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_Title" resname="DeferCompare_Title">
+				<source>The same job, written twice</source>
+				<target>同じ処理を2通りで記述</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_LabelExample" resname="DeferCompare_LabelExample">
+				<source>Example</source>
+				<target>例</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_LabelScenario" resname="DeferCompare_LabelScenario">
+				<source>Scenario</source>
+				<target>シナリオ</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_BtnRun" resname="DeferCompare_BtnRun">
+				<source>Run both</source>
+				<target>両方を実行</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ChkCleanupOnly" resname="DeferCompare_ChkCleanupOnly">
+				<source>Show clean-up code only</source>
+				<target>クリーンアップコードのみ表示</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_LabelResult" resname="DeferCompare_LabelResult">
+				<source>Execution result:</source>
+				<target>実行結果:</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_HeaderLegacy" resname="DeferCompare_HeaderLegacy">
+				<source>WITHOUT defer</source>
+				<target>defer なし</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_HeaderDefer" resname="DeferCompare_HeaderDefer">
+				<source>WITH defer</source>
+				<target>defer あり</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_HeaderCode" resname="DeferCompare_HeaderCode">
+				<source>Code</source>
+				<target>コード</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_Footer" resname="DeferCompare_Footer">
+				<source>defer(expression) — stacked where it is declared, executed in LIFO order when the method exits: normal end, Return, or user abort.</source>
+				<target>defer(expression) — 宣言された位置でスタックに積まれ、メソッドの終了時（正常終了、return、ユーザーによる中断）に LIFO 順で実行されます。</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

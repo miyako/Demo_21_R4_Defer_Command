@@ -1,0 +1,26 @@
+/* Windows platform themes: Fluent UI vs classic */
+
+/* monospace code panes */
+.code-pane, .line-num, .code-col {
+	fontFamily: Consolas;
+}
+
+@media (form-theme: fluent-ui) {
+	.default {
+		height: 32px;
+	}
+
+	button.default {
+		height: 32px;
+	}
+}
+
+@media (form-theme: win-classic) {
+	.default {
+		height: 24px;
+	}
+
+	button.default {
+		height: 24px;
+	}
+}

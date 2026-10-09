@@ -21,3 +21,6 @@ Thumbs.db
 # Personal settings
 .github/
 .vscode/
+
+# 4D runtime / user data
+Data/

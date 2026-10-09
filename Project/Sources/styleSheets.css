@@ -1,0 +1,42 @@
+/* Cross-platform colour scheme rules (light / dark) */
+
+.label { stroke: automatic; }
+
+@media (prefers-color-scheme: light) {
+	.bg-main { fill: #F4F6FA; }
+	.header-bar { fill: #12203A; }
+	.header-text { stroke: #FFFFFF; }
+	.result-bar { fill: #E7EFFB; }
+	.accent { stroke: #0B63CE; }
+	.legacy { stroke: #C81E1E; }
+	.defer { stroke: #1A7F37; }
+	.muted { stroke: #5A6B85; }
+	.code-pane { fill: #FFFFFF; }
+	.line-num { stroke: #B8C2D0; }
+
+	/* hidden colour references read at runtime for listbox meta */
+	.ref-comment { fill: #8892A4; visibility: hidden; }
+	.ref-cleanup { fill: #C81E1E; visibility: hidden; }
+	.ref-defer { fill: #1A7F37; visibility: hidden; }
+	.ref-exit { fill: #0B63CE; visibility: hidden; }
+	.ref-missing { fill: #C81E1E; visibility: hidden; }
+}
+
+@media (prefers-color-scheme: dark) {
+	.bg-main { fill: #1E1E1E; }
+	.header-bar { fill: #0B1424; }
+	.header-text { stroke: #FFFFFF; }
+	.result-bar { fill: #1F2A3A; }
+	.accent { stroke: #5CB8FF; }
+	.legacy { stroke: #FF6B6B; }
+	.defer { stroke: #4AC26B; }
+	.muted { stroke: #A0A0A0; }
+	.code-pane { fill: #2A2A2A; }
+	.line-num { stroke: #5A6270; }
+
+	.ref-comment { fill: #7D8799; visibility: hidden; }
+	.ref-cleanup { fill: #FF6B6B; visibility: hidden; }
+	.ref-defer { fill: #4AC26B; visibility: hidden; }
+	.ref-exit { fill: #5CB8FF; visibility: hidden; }
+	.ref-missing { fill: #CC3333; visibility: hidden; }
+}

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file datatype="plaintext" original="Classes/FC_DeferCompare.4dm" source-language="en" target-language="ja">
+		<body>
+			<trans-unit id="DeferCompare_ExampleXML" resname="DeferCompare_ExampleXML">
+				<source>XML — closing 5 document references</source>
+				<target>XML — 5つのドキュメント参照を閉じる</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ExampleBench" resname="DeferCompare_ExampleBench">
+				<source>Benchmark — closing the measure</source>
+				<target>ベンチマーク — 計測を終了する</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_SubtitleXML" resname="DeferCompare_SubtitleXML">
+				<source>5 XML document references · 11 exit points · 2 nested loops.</source>
+				<target>XML ドキュメント参照 5個 · 終了ポイント 11箇所 · ネストしたループ 2つ。</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_SubtitleBench" resname="DeferCompare_SubtitleBench">
+				<source>1 benchmark · 12 exit points — a measure that has to be closed on every single path.</source>
+				<target>ベンチマーク 1件 · 終了ポイント 12箇所 — すべての経路で計測を終了しなければなりません。</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioXMLNominal" resname="DeferCompare_ScenarioXMLNominal">
+				<source>Nominal — the report is produced (exit 11)</source>
+				<target>正常 — レポートが生成される (exit 11)</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioXMLCatalogVersion" resname="DeferCompare_ScenarioXMLCatalogVersion">
+				<source>Catalog version mismatch (exit 4)</source>
+				<target>カタログのバージョン不一致 (exit 4)</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioXMLTemplatePlaceholder" resname="DeferCompare_ScenarioXMLTemplatePlaceholder">
+				<source>Template placeholder missing (exit 8)</source>
+				<target>テンプレートのプレースホルダーがない (exit 8)</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioXMLUnknownProduct" resname="DeferCompare_ScenarioXMLUnknownProduct">
+				<source>Unknown product in an order (exit 9)</source>
+				<target>注文に不明な商品 (exit 9)</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioBenchNominal" resname="DeferCompare_ScenarioBenchNominal">
+				<source>Nominal — order priced (exit 12)</source>
+				<target>正常 — 注文の価格が計算される (exit 12)</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioBenchBlockedCustomer" resname="DeferCompare_ScenarioBenchBlockedCustomer">
+				<source>Customer is blocked (exit 5)</source>
+				<target>顧客が取引停止中 (exit 5)</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioBenchUnknownProduct" resname="DeferCompare_ScenarioBenchUnknownProduct">
+				<source>Unknown product in a line (exit 9)</source>
+				<target>明細に不明な商品 (exit 9)</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioBenchBadCurrency" resname="DeferCompare_ScenarioBenchBadCurrency">
+				<source>Unsupported currency, error caught (exit 7)</source>
+				<target>未対応の通貨、エラーを捕捉 (exit 7)</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ScenarioBenchDiscountConflict" resname="DeferCompare_ScenarioBenchDiscountConflict">
+				<source>Conflicting discounts (exit 11) — the measure is lost</source>
+				<target>割引の競合 (exit 11) — 計測が失われる</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ResultPrompt" resname="DeferCompare_ResultPrompt">
+				<source>press Run both to execute the two versions</source>
+				<target>「両方を実行」を押して2つのバージョンを実行してください</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ResultSame" resname="DeferCompare_ResultSame">
+				<source>Exit {exit} on both sides — {message}</source>
+				<target>両方とも exit {exit} — {message}</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ResultDiverge" resname="DeferCompare_ResultDiverge">
+				<source>The two versions diverge!</source>
+				<target>2つのバージョンの結果が一致しません！</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_ResultBench" resname="DeferCompare_ResultBench">
+				<source>Exit {exit} — measures recorded: {legacyRecorded}/{legacyStarted} without defer,  {deferRecorded}/{deferStarted} with defer</source>
+				<target>exit {exit} — 記録された計測: defer なし {legacyRecorded}/{legacyStarted}、defer あり {deferRecorded}/{deferStarted}</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_Metrics" resname="DeferCompare_Metrics">
+				<source>{lines} lines   |   {exits} exit points   |   {cleanup}</source>
+				<target>{lines} 行   |   終了ポイント {exits} 箇所   |   {cleanup}</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_MetricsCleanupXML" resname="DeferCompare_MetricsCleanupXML">
+				<source>{count} clean-up statements</source>
+				<target>クリーンアップ文 {count} 個</target>
+			</trans-unit>
+			<trans-unit id="DeferCompare_MetricsCleanupBench" resname="DeferCompare_MetricsCleanupBench">
+				<source>{count} benchmark closings</source>
+				<target>ベンチマーク終了処理 {count} 個</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
