@@ -312,7 +312,6 @@
 					"sizingY": "grow",
 					"class": "code-pane",
 					"stroke": "automatic",
-					"hideSystemHighlight": false,
 					"columns": [
 						{
 							"name": "colLegacyNum",
